@@ -31,6 +31,7 @@ class Router
                 'Controller';
             if(class_exists($controller)){
                 $controllerObject = new controller(self::$route);
+                $action = self::lowerCamelCase(self::$route['action']) . 'Action';
 
             }else{throw new \Exception("Контроллер $controller не найден", 404);
 
@@ -70,8 +71,11 @@ class Router
 
     protected static function upperCamelCase($name)
     {
-
         return $name = str_replace(' ', '',ucwords(str_replace('-', ' ', $name))) ;
+    }
 
+    protected static function lowerCamelCase($name)
+    {
+        return lcfirst(self::upperCamelCase($name));
     }
 }

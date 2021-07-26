@@ -44,6 +44,9 @@ class Router
                         $route[$k]=$v;
                     }
                 }
+                if(empty($route['action'])){
+                    $route['action']='index';
+                }
                 debug($route);
                 return true;
             }

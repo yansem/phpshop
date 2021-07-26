@@ -47,10 +47,10 @@ class Router
                 if(empty($route['action'])){
                     $route['action']='index';
                 }
-                if(!isset($route['action'])){
-                    $route['action']='index';
+                if(!isset($route['prefix'])){
+                    $route['prefix']='';
                 }else{
-                    $route['prefix'] .= '';
+                    $route['prefix'] .= '\\';
                 }
                 self::$route=$route;
                 debug(self::$route);

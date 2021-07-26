@@ -47,7 +47,13 @@ class Router
                 if(empty($route['action'])){
                     $route['action']='index';
                 }
-                debug($route);
+                if(!isset($route['action'])){
+                    $route['action']='index';
+                }else{
+                    $route['prefix'] .= '';
+                }
+                self::$route=$route;
+                debug(self::$route);
                 return true;
             }
         }

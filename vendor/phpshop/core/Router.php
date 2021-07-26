@@ -29,7 +29,7 @@ class Router
         if (self::matchRoute($url)){
             echo "OK";
         }else{
-            echo "NO";
+            throw new \Exception("Страница не найдена", 404);
     }
     }
 

@@ -27,7 +27,8 @@ class Router
     public static function dispatch($url)
     {
         if (self::matchRoute($url)){
-            echo "OK";
+            $controller = 'app\controllers\\' . self::$route['prefix'] . self::$route['controller'] .
+                'Controller';
         }else{
             throw new \Exception("Страница не найдена", 404);
     }

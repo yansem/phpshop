@@ -35,6 +35,19 @@ class Router
 
     public static function matchRoute($url)
     {
+        foreach (self::$routes as $pattern=>$route)
+        {
+            if(preg_match("#{$pattern}#", $url, $matches)){
+                foreach ($matches as $k=>$v)
+                {
+                    if(is_string($k)){
+                        $route[$k]=$v;
+                    }
+                }
+                debug($route);
+                return true;
+            }
+        }
         return false;
     }
 }

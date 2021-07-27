@@ -33,6 +33,11 @@ class View
 
     public function render($data)
     {
-        echo $viewFile = APP . "/views/{$this->prefix}{$this->controller}/{$this->view}.php";
+        $viewFile = APP . "/views/{$this->prefix}{$this->controller}/{$this->view}.php";
+        if(is_file($viewFile)){
+            require_once $viewFile;
+        }else{
+            throw new \Exception("Не найден файл {$viewFile}");
+        }
     }
 }

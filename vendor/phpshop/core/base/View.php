@@ -33,6 +33,6 @@ class View
 
     public function render($data)
     {
-
+        echo $viewFile = APP . "/views/{$this->prefix}{$this->controller}/{$this->view}.php";
     }
 }

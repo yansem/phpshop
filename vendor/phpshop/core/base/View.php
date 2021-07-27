@@ -22,7 +22,6 @@ class View
         $this->view = $view;
         $this->prefix = $route['prefix'];
         $this->meta = $meta;
-        $this->prefix = $route['prefix'];
 
     }
 }

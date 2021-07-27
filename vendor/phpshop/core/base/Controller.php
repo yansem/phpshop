@@ -9,6 +9,7 @@ abstract class Controller
     public $route;
     public $controller;
     public $view;
+    public $layout;
     public $model;
     public $prefix;
     public $data = [];

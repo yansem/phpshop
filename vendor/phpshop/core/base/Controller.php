@@ -25,6 +25,12 @@ abstract class Controller
 
     }
 
+    public function getView()
+    {
+        $viewObject = new View($this->route,$this->layout,$this->view,$this->meta);
+        $viewObject->render($this->data);
+    }
+
     public function set($data)
     {
         $this->data = $data;

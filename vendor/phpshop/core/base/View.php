@@ -30,4 +30,9 @@ class View
             $this->layout=$layout ?: LAYOUT;
         }
     }
+
+    public function render($data)
+    {
+
+    }
 }

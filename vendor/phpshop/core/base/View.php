@@ -37,9 +37,17 @@ class View
         if(is_file($viewFile)){
             ob_start();
             require_once $viewFile;
-            $controller = ob_get_clean();
+            $content = ob_get_clean();
         }else{
-            throw new \Exception("Не найден файл {$viewFile}");
+            throw new \Exception("Не найден файл {$viewFile}", 500);
+        }
+        if($this->layout !== false){
+            $layoutFile = APP . "/views/layouts/{$this->layout}.php";
+            if(is_file($layoutFile)){
+                require_once $layoutFile;
+            }else{
+                throw new \Exception("Не найден шаблон {$this->layout}", 500);
+            }
         }
     }
 }

@@ -10,4 +10,9 @@ abstract class Model
     public $errors=[];
     public $rules=[];
 
+    public function __construct()
+    {
+
+    }
+
 }

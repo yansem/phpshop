@@ -4,6 +4,8 @@
 namespace phpshop\base;
 
 
+use phpshop\Db;
+
 abstract class Model
 {
     public $attributes=[];
@@ -12,7 +14,7 @@ abstract class Model
 
     public function __construct()
     {
-
+        Db::instance();
     }
 
 }

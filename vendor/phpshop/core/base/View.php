@@ -54,8 +54,9 @@ class View
 
     public function getMeta()
     {
-        return "<title>{$this->meta['title']}</title>
-\t<meta name='description' content='{$this->meta['desc']}'>
-\t<meta name='keywords' content='{$this->meta['keywords']}'>";
+        $output = "<title>{$this->meta['title']}</title>\n";
+        $output .= "\t<meta name='description' content='{$this->meta['desc']}'>\n";
+        $output .= "\t<meta name='keywords' content='{$this->meta['keywords']}'>\n>";
+        return $output;
     }
 }

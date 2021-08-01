@@ -12,7 +12,7 @@ class MainController extends AppController
     public function indexAction()
     {
         $posts = \R::findAll('test');
-        debug($posts);
         $this->setMeta('Главная страница', 'Описание...', 'Ключевые слова...');
+        $this->set(compact('posts'));
     }
 }

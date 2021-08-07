@@ -42,6 +42,7 @@
 <!--about-end-->
 <!--product-starts-->
 <?php if ($hits): ?>
+<?php $curr = \phpshop\App::$app->getProperty('currency');?>
     <div class="product">
         <div class="container">
             <div class="product-top">
@@ -56,9 +57,9 @@
                                     <a href="product/<?= $hit->alias ?>"><h3><?= $hit->title ?></h3></a>
                                     <p>Explore Now</p>
                                     <h4><a class="add-to-cart-link" href="cart/add?id=<?= $hit->id ?>"><i></i></a> <span
-                                                class=" item_price"><?=$hit->price?></span>
+                                                class=" item_price"><?=$curr['symbol_left']?><?=$hit->price*$curr['value']?><?=$curr['symbol_right']?></span>
                                         <?php if($hit->old_price):?>
-                                        <small><del><?=$hit->old_price?></del></small>
+                                        <small><del><?=$curr['symbol_left']?><?=$hit->old_price*$curr['value']?><?=$curr['symbol_right']?></del></small>
                                         <?php endif;?>
                                     </h4>
                                 </div>

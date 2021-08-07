@@ -2,6 +2,8 @@
 
 namespace app\widgets\currency;
 
+use phpshop\App;
+
 class Currency
 {
     protected $tpl;
@@ -16,7 +18,9 @@ class Currency
 
     protected function run()
     {
-        $this->getHtml();
+        $this->currensies = App::$app->getProperty('currensies');
+        $this->currency = App::$app->getProperty('currency');
+        echo $this->getHtml();
     }
 
     public static function getCurrensies()
@@ -39,7 +43,9 @@ FROM currency ORDER by base DESC");
 
     protected function getHtml()
     {
-
+        ob_start();
+        require_once $this->tpl;
+        return ob_get_clean();
     }
 
 

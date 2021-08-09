@@ -9,6 +9,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
     <?= $this->getMeta(); ?>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="megamenu/css/ionicons.min.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="megamenu/css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
     <!--Custom-Theme-files-->
     <!--theme-style-->
@@ -16,10 +18,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-
-    <!--start-menu-->
-    <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all"/>
 
 </head>
 <body>
@@ -71,15 +69,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="container">
         <div class="header">
             <div class="col-md-9 header-left">
-                <div class="menu">
-                    <?php new \app\widgets\menu\Menu([
-                            'tpl' => WWW . '/menu/menu.php',
-                            'attrs' => [
-                                    'style'=>'border:1px solid red;'
-                            ]
+                <div class="menu-container">
+                    <div class="menu">
+                        <?php new \app\widgets\menu\Menu([
+                                'tpl' => WWW . '/menu/menu.php',
 
-                    ]); ?>
+                        ]); ?>
 
+                    </div>
                 </div>
 <!--                <div class="top-nav">-->
 <!--                    <ul class="memenu skyblue">-->
@@ -332,6 +329,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     });
 </script>
+<script src="megamenu/js/megamenu.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

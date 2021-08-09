@@ -30,6 +30,6 @@ class AppController extends Controller
             $cats = \R::getAssoc("SELECT * FROM category");
             $cache->set('cats', $cats);
         }
-        return $cache;
+        return $cats;
     }
 }

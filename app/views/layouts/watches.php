@@ -202,6 +202,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         });
     });
 </script>
+<script src="js/jquery.easydropdown.js"></script>
+<script type="text/javascript">
+    $(function() {
+
+        var menu_ul = $('.menu_drop > li > ul'),
+            menu_a  = $('.menu_drop > li > a');
+
+        menu_ul.hide();
+
+        menu_a.click(function(e) {
+            e.preventDefault();
+            if(!$(this).hasClass('active')) {
+                menu_a.removeClass('active');
+                menu_ul.filter(':visible').slideUp('normal');
+                $(this).addClass('active').next().stop(true,true).slideDown('normal');
+            } else {
+                $(this).removeClass('active');
+                $(this).next().stop(true,true).slideUp('normal');
+            }
+        });
+
+    });
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>

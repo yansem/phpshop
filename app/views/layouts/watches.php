@@ -166,7 +166,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--footer-end-->
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/simpleCart.min.js"></script>
-    });</script>
 <!--dropdown-->
 <script src="js/jquery.easydropdown.js"></script>
 <script src="js/responsiveslides.min.js"></script>
@@ -222,10 +221,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 $(this).next().stop(true,true).slideUp('normal');
             }
         });
-
     });
+
 </script>
 <script src="js/main.js"></script>
+
+<?php
+$logs = R::getDatabaseAdapter()
+    ->getDatabase()
+    ->getLogger();
+
+debug( $logs->grep( 'SELECT' ) );
+?>
+
 </body>
 </html>
 

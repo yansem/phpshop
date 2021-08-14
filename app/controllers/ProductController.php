@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Product;
+
 class ProductController extends AppController
 {
     public function viewAction()
@@ -19,6 +21,8 @@ class ProductController extends AppController
     product.id=related_product.related_id WHERE related_product.product_id=?", [$product->id]);
 
         // запись в куки просмотренного товаров
+        $p_model = new Product();
+        $p_model->setRecentlyViewed($product->id);
 
         // просмотренные товары
 

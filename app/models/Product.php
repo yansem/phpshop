@@ -22,12 +22,17 @@ class Product extends AppModel
 
     public function getRecentlyViewed()
     {
+        if(!empty($_COOKIE['recentlyViewed'])){
+            $recently_viewed = $_COOKIE['recentlyViewed'];
+            $recently_viewed = explode('.', $recently_viewed);
+            return array_slice($recently_viewed, -3);
+        }
 
     }
 
     public function getAllRecentlyViewed()
     {
-        if(!empty($_COOKIE['recentlyViewed'])){
+        if(isset($_COOKIE['recentlyViewed'])){
             return $_COOKIE['recentlyViewed'];
         }
         return false;

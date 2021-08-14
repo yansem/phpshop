@@ -174,9 +174,9 @@
                     </ul>
                 </div>
                 <?php if($related): ?>
-                <h3>С этим товаром также покупают:</h3>
                 <div class="latestproducts">
                     <div class="product-one">
+                        <h3>С этим товаром также покупают:</h3>
                         <?php foreach ($related as $item): ?>
                         <div class="col-md-4 product-left p-left">
                             <div class="product-main simpleCart_shelfItem">

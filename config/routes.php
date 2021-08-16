@@ -3,6 +3,7 @@
 use phpshop\Router;
 
 Router::add('^product/(?P<alias>[a-z0-9-]+)/?$', ['controller' => 'Product', 'action' => 'view']);
+Router::add('^product/(?P<alias>[a-z0-9-]+)/?related$', ['controller' => 'Product', 'action' => 'viewAll']);
 
 // default routes
 Router::add('^admin$', ['controller' => 'Main', 'action' => 'index', 'prefix' => 'admin']);

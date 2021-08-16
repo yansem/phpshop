@@ -40,4 +40,18 @@ class ProductController extends AppController
         $this->set(compact('product', 'related', 'gallery', 'recentlyViewed'));
     }
 
+    public function viewAllAction()
+    {
+        // все просмотренные товары
+        $p_model = new Product();
+        $r_viewed = $p_model->getAllRecentlyViewed();
+        $r_viewed = explode('.', $r_viewed);
+        $recentlyViewed = null;
+        if($r_viewed){
+            $recentlyViewed=\R::find('product', 'id IN ('.\R::genSlots( $r_viewed ).')', $r_viewed );
+        }
+//        $this->setMeta($product->title, $product->description, $product->keywords);
+        $this->set(compact('recentlyViewed'));
+    }
+
 }

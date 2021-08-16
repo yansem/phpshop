@@ -207,7 +207,7 @@
                 <?php endif; ?>
                 <?php if($recentlyViewed): ?>
                     <div class="latestproducts">
-                        <div class="product-one">
+                        <h3 class="product-one">
                             <h3>Недавно просмотренные товары:</h3>
                             <?php foreach ($recentlyViewed as $item): ?>
                                 <div class="col-md-4 product-left p-left">
@@ -234,6 +234,7 @@
                                 </div>
                             <?php endforeach; ?>
                             <div class="clearfix"></div>
+                            <h3><a href="product/<?=$product->alias;?>/related">Все просмотренные товары</a></h3>
                         </div>
                     </div>
                 <?php endif; ?>

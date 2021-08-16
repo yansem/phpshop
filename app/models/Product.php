@@ -27,6 +27,7 @@ class Product extends AppModel
             $recently_viewed = explode('.', $recently_viewed);
             return array_slice($recently_viewed, -3);
         }
+        return false;
 
     }
 

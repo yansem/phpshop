@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Breadcrumbs;
 use app\models\Product;
 
 class ProductController extends AppController
@@ -15,6 +16,7 @@ class ProductController extends AppController
         }
 
         // хлебные крошки
+        $breadcrumbs = Breadcrumbs::getBreadcrumbs($product->category_id, $product->title);
 
         // связанные товары
         $related = \R::getAll("SELECT * FROM related_product JOIN product ON 
@@ -37,7 +39,7 @@ class ProductController extends AppController
         // модификации
 
         $this->setMeta($product->title, $product->description, $product->keywords);
-        $this->set(compact('product', 'related', 'gallery', 'recentlyViewed'));
+        $this->set(compact('product', 'related', 'gallery', 'recentlyViewed', 'breadcrumbs'));
     }
 
     public function viewAllAction()

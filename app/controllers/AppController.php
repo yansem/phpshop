@@ -17,9 +17,9 @@ class AppController extends Controller
     {
         parent::__construct($route);
         new AppModel();
-        App::$app->setProperty('currensies', Currency::getCurrensies());
-        App::$app->setProperty('currency', Currency::getCurrency(App::$app->getProperty('currensies')));
-        App::$app->setProperty('cats', self::cacheCategory());
+        App::$app->setProperty('currensies', Currency::getCurrensies()); // валюты
+        App::$app->setProperty('currency', Currency::getCurrency(App::$app->getProperty('currensies')));  // валюта
+        App::$app->setProperty('cats', self::cacheCategory());  // категории
     }
 
     public static function cacheCategory()

@@ -56,7 +56,7 @@
                                 <div class="product-bottom">
                                     <a href="product/<?= $hit->alias ?>"><h3><?= $hit->title ?></h3></a>
                                     <p>Explore Now</p>
-                                    <h4><a class="add-to-cart-link" href="cart/add?id=<?= $hit->id ?>"><i></i></a> <span
+                                    <h4><a data-id="<?= $hit->id ?>" class="add-to-cart-link" href="cart/add?id=<?= $hit->id ?>"><i></i></a> <span
                                                 class=" item_price"><?=$curr['symbol_left']?><?=$hit->price*$curr['value']?><?=$curr['symbol_right']?></span>
                                         <?php if($hit->old_price):?>
                                         <small><del><?=$curr['symbol_left']?><?=$hit->old_price*$curr['value']?><?=$curr['symbol_right']?></del></small>

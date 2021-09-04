@@ -27,6 +27,11 @@ function showCart(cart){
     }
     $('#cart .modal-body').html(cart);
     $('#cart').modal();
+    if($('.cart-sum').text()){
+        $('.simpleCart_total').html($('.cart-sum').text());
+    }else{
+        $('.simpleCart_total').html('Empty cart')
+    }
 }
 
 function getCart(){

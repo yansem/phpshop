@@ -20,7 +20,8 @@ $('body').on('click', '.add-to-cart-link', function (e){
     })
 
     function showCart(cart){
-        console.log(cart);
+        $('#cart .modal-body').html(cart);
+        $('#cart').modal();
     }
 
 

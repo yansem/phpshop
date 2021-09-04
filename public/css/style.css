@@ -3076,3 +3076,13 @@ ul.tag-men {
 	margin-right: 10px;
 	float: left;
 }
+
+.table-responsive img {
+	height: 50px;
+}
+
+.table-responsive td.fit,
+.table-responsive th.fit {
+	white-space: nowrap;
+	width: 1%;
+}

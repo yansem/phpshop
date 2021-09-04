@@ -19,6 +19,21 @@ $('body').on('click', '.add-to-cart-link', function (e) {
     });
 });
 
+$('#cart .modal-body').on('click', '.del-item', function(){
+    let id = $(this).data('id');
+    $.ajax({
+        url: '/cart/delete',
+        data: {id:id},
+        type: 'GET',
+        success: function (res){
+            showCart(res);
+        },
+        error: function (){
+            alert('Ошибка! Попробуйте позже');
+        }
+    });
+})
+
 function showCart(cart){
     if($.trim(cart)==='<h3>Корзина пуста</h3>'){
         $('#setOrder, #clearCart').css('display', 'none');

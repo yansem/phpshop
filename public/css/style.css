@@ -3086,3 +3086,7 @@ ul.tag-men {
 	white-space: nowrap;
 	width: 1%;
 }
+
+.del-item {
+	cursor: pointer;
+}

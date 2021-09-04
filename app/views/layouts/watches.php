@@ -51,9 +51,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="total">
                             <img src="images/cart-1.png" alt="" />
                             <?php if(!empty($_SESSION['cart'])): ?>
-                                <span><?=$_SESSION['cart.currency']['symbol_left'] . $_SESSION['cart.sum'] . $_SESSION['cart.currency']['symbol_right'];?></span>
+                                <span class="simpleCart_total"><?=$_SESSION['cart.currency']['symbol_left'] . $_SESSION['cart.sum'] . $_SESSION['cart.currency']['symbol_right'];?></span>
                             <?php else: ?>
-                                <span>Empty Cart</span>
+                                <span class="simpleCart_total">Empty Cart</span>
                             <?php endif; ?>
                         </div>
                     </a>
@@ -205,7 +205,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/simpleCart.min.js"></script>
 <!--dropdown-->
 <script src="js/jquery.easydropdown.js"></script>
 <script src="js/responsiveslides.min.js"></script>

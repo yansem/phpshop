@@ -16,6 +16,7 @@ class CurrencyController extends AppController
             $curr = \R::findOne('currency', 'code = ?', [$currency]);
             if(array_key_exists($currency, App::$app->getProperty('currensies'))){
                 setcookie('currency', $currency, time()+3600*24*7, '/');
+                Cart::recalc($curr);
             }
         }
         redirect();

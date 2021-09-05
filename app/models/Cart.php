@@ -42,4 +42,27 @@ class Cart extends AppModel
         $_SESSION['cart.sum'] -= $_SESSION['cart'][$id]['price'] * $_SESSION['cart'][$id]['qty'];
         unset($_SESSION['cart'][$id]);
     }
+
+    public static function recalc($curr)
+    {
+        if(isset($_SESSION['cart.currency'])){
+            if($_SESSION['cart.currency']['base']){  // если пересчет из базовой валюты
+                $_SESSION['cart.sum'] *= $curr['value'];
+                foreach ($_SESSION['cart'] as $k => $v)
+                {
+                    $_SESSION['cart'][$k]['price'] *= $curr['value'];
+                }
+            }else{  // если пересчет НЕ из базовой валюты
+                $_SESSION['cart.sum'] = $_SESSION['cart.sum'] / $_SESSION['cart.currency']['value'] * $curr['value'];
+                foreach ($_SESSION['cart'] as $k => $v)
+                {
+                    $_SESSION['cart'][$k]['price'] = $_SESSION['cart'][$k]['price'] / $_SESSION['cart.currency']['value'] * $curr['value'];
+                }
+            }
+            foreach ($curr as $k => $v)  // изменение валюты в корзине
+            {
+                $_SESSION['cart.currency'][$k] = $v;
+            }
+        }
+    }
 }

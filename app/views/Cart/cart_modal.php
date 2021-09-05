@@ -3,9 +3,11 @@
         <table class="table table-hover table-striped">
             <thead>
             <tr>
-                <th class="fit">Фото</th>
-                <th class="fit">Наименование</th>
-                <th class="fit">Количество</th>
+                <th class="fit text-center">Фото</th>
+                <th class="fit text-center">Наименование</th>
+                <th class="fit text-center">Количество</th>
+                <th class="fit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></th>
+                <th class="fit"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></th>
                 <th class="fit">Цена</th>
                 <th class="fit"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
             </tr>
@@ -13,9 +15,11 @@
             <tbody>
             <?php foreach ($_SESSION['cart'] as $id=>$item): ?>
                 <tr>
-                    <td class="fit"><a href="product/<?=$item['alias']; ?>"><img src="images/<?=$item['img']; ?>" alt=""></a></td>
-                    <td class="fit"><?= $item['title']; ?></td>
-                    <td class="fit"><?= $item['qty']; ?></td>
+                    <td class="fit text-center"><a href="product/<?=$item['alias']; ?>"><img src="images/<?=$item['img']; ?>" alt=""></a></td>
+                    <td class="fit text-center"><?= $item['title']; ?></td>
+                    <td class="fit text-center" id="qty"><?= $item['qty']; ?></span></td>
+                    <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-plus text-success add-item" aria-hidden="true"></span></td>
+                    <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-minus text-secondary minus-item" aria-hidden="true"></span></td>
                     <td class="fit"><?= $_SESSION['cart.currency']['symbol_left'] . $item['price'] . $_SESSION['cart.currency']['symbol_right']; ?></td>
                     <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
                 </tr>

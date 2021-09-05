@@ -3087,6 +3087,6 @@ ul.tag-men {
 	width: 1%;
 }
 
-.del-item {
+.del-item, .add-item, .minus-item {
 	cursor: pointer;
 }

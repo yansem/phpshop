@@ -54,6 +54,7 @@ class ProductController extends AppController
             $recentlyViewed=\R::find('product', 'id IN ('.\R::genSlots( $r_viewed ).')', $r_viewed );
         }
 //        $this->setMeta($product->title, $product->description, $product->keywords);
+        $this->setMeta('Недавно просмотренные товары');
         $this->set(compact('recentlyViewed'));
     }
 

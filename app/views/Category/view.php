@@ -31,13 +31,20 @@
                                             <?php endif; ?>
                                         </h4>
                                     </div>
-                                    <div class="srch srch1">
-                                        <span>-50%</span>
-                                    </div>
+                                    <?php if($product->old_price): ?>
+                                        <div class="srch">
+                                            <span><?=round(($product->old_price-$product->price)*100/$product->old_price,1);?>%</span>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         <?php endforeach; ?>
                         <div class="clearfix"></div>
+                        <div class="text-center">
+                            <?php if($pagination->countPages > 1): ?>
+                                <?= $pagination; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 <?php else: ?>
                 <h3>В этой категории товаров пока нет ...</h3>

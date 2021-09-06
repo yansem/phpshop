@@ -1,9 +1,9 @@
 /* Search */
-let products = new Bloodhound({
+let products = new Bloodhound({  // products получит данные запроса
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     remote: {
-        wildcard: '%QUERY',
+        wildcard: '%QUERY', // маркер, который будет заменен поисковым запросом
         url: path + '/search/typeahead?query=%QUERY'
     }
 });
@@ -15,12 +15,12 @@ $("#typeahead").typeahead({
     highlight: true
 },{
     name: 'products',
-    display: 'title',
-    limit: 10,
-    source: products
+    display: 'title', // что будет показываться
+    limit: 10, // количество результатов
+    source: products // источник данных
 });
 
-$('#typeahead').bind('typeahead:select', function(ev, suggestion) {
+$('#typeahead').bind('typeahead:select', function(ev, suggestion) { // suggestion - объект (id,title)
     // console.log(suggestion);
     window.location = path + '/search/?s=' + encodeURIComponent(suggestion.title);
 });

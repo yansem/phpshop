@@ -17,4 +17,14 @@ abstract class Model
         Db::instance();
     }
 
+    public function load($data)
+    {
+        foreach ($this->attributes as $name => $value)
+        {
+            if(isset($data[$name])){  // если отправят "левые" данные, то они не пройдут проверку, т.к. $name уже объявлены
+                $this->attributes[$name] = $data[$name];
+            }
+        }
+    }
+
 }

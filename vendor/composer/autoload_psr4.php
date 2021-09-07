@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'phpshop\\' => array($vendorDir . '/phpshop/core'),
     'app\\' => array($baseDir . '/app'),
+    'Valitron\\' => array($vendorDir . '/vlucas/valitron/src/Valitron'),
 );

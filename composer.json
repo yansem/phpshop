@@ -4,5 +4,8 @@
       "phpshop\\": "vendor/phpshop/core",
       "app\\": "app"
     }
+  },
+  "require": {
+    "vlucas/valitron": "^1.4"
   }
 }

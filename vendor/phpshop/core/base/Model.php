@@ -5,6 +5,7 @@ namespace phpshop\base;
 
 
 use phpshop\Db;
+use Valitron\Validator;
 
 abstract class Model
 {
@@ -25,6 +26,17 @@ abstract class Model
                 $this->attributes[$name] = $data[$name];
             }
         }
+    }
+
+    public function validate($data)
+    {
+        $v = new Validator($data);
+        $v->rules($this->rules);
+        if($v->validate()){
+            return true;
+        }
+        $this->errors = $v->errors();
+        return false;
     }
 
 }

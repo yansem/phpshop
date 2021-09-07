@@ -21,6 +21,7 @@ class UserController extends AppController
                 }
             }else{
                 $user->getErrors();
+                $_SESSION['form_data'] = $data;
             }
             redirect();
         }

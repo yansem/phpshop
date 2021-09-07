@@ -242,6 +242,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--dropdown-->
 <script src="js/jquery.easydropdown.js"></script>
 <script src="js/responsiveslides.min.js"></script>
+<script src="js/validator.min.js"></script>
 <script>
     // You can also use "$(window).load(function() {"
     $(function () {

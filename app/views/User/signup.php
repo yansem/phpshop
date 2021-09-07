@@ -22,26 +22,35 @@
 
                     <div class="register-main">
                         <div class="col-md-6 account-left">
-                            <form method="post" action="user/signup" id="signup" role="form">
-                                <div class="form-group">
-                                    <label for="login">Login</label>
-                                    <input type="text" name="login" class="form-control" id="login" placeholder="Login">
+                            <form method="post" action="user/signup" id="signup" role="form" data-toggle="validator">
+                                <div class="form-group has-feedback">
+                                    <label for="login" class="control-label">Login</label>
+                                    <input type="text" name="login" class="form-control" id="login" placeholder="Login" required>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label for="pasword">Password</label>
-                                    <input type="password" name="password" class="form-control" id="pasword" placeholder="Password">
+
+                                <div class="form-group has-feedback">
+                                    <label for="pasword" class="control-label">Password</label>
+                                    <input type="password" data-minlength="6" name="password" class="form-control" id="pasword" placeholder="Password" required>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block">Пароль должен включать не менее 6 символов</div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="name">Имя</label>
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Имя">
+
+                                <div class="form-group has-feedback">
+                                    <label for="name" class="control-label">Имя</label>
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Имя" required>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                                <div class="form-group has-feedback">
+                                    <label for="email" class="control-label">Email</label>
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Email" data-error="Bruh, that email address is invalid" required>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input type="text" name="address" class="form-control" id="address" placeholder="Address">
+                                <div class="form-group has-feedback">
+                                    <label for="address" class="control-label">Address</label>
+                                    <input type="text" name="address" class="form-control" id="address" placeholder="Address" required>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
                                 <button type="submit" class="btn btn-default">Зарегистрировать</button>
                             </form>

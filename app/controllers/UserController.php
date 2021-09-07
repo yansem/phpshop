@@ -13,12 +13,12 @@ class UserController extends AppController
             $data = $_POST;
             $user->load($data);
             if($user->validate($data)){
-                echo 'YES';
+                $_SESSION['success'] = 'OK';
+                redirect();
             }else{
-                echo 'NO';
-                debug($user);
+                $user->getErrors();
+                redirect();
             }
-            die;
         }
         $this->setMeta('Регистрация');
     }

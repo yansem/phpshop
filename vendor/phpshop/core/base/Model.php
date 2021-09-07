@@ -28,6 +28,16 @@ abstract class Model
         }
     }
 
+    public function save($table)
+    {
+        $tbl = \R::dispense($table);
+        foreach ($this->attributes as $name => $value)
+        {
+            $tbl->$name = $value;
+        }
+        return \R::store($tbl);
+    }
+
     public function validate($data)
     {
         Validator::langDir(WWW . '/validator/lang');

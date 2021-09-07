@@ -13,6 +13,7 @@ class UserController extends AppController
             $data = $_POST;
             $user->load($data);
             if($user->validate($data)){
+                $user->attributes['password'] = password_hash($user->attributes['password'], PASSWORD_DEFAULT);
                 if($user->save('user')){
                     $_SESSION['success'] = 'Пользователь зарегистрирован';
                 }else{

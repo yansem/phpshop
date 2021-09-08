@@ -6,6 +6,7 @@
     }
   },
   "require": {
-    "vlucas/valitron": "^1.4"
+    "vlucas/valitron": "^1.4",
+    "swiftmailer/swiftmailer": "^6.0"
   }
 }

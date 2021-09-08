@@ -2,11 +2,19 @@
 
 namespace app\models;
 
-class Order
-{
-    public static function saveOrder($data)
-    {
+use phpshop\base\Model;
 
+class Order extends AppModel
+{
+    public $attributes = [
+        'user_id' => '',
+        'note' => '',
+        'currency' => ''
+    ];
+
+    public function saveOrder($data)
+    {
+        return $this->save('order');
     }
 
     public static function saveOrderProduct($order_id)

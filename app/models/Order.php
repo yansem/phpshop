@@ -14,7 +14,9 @@ class Order extends AppModel
 
     public function saveOrder($data)
     {
-        return $this->save('order');
+        $order_id = $this->save('order');
+        self::saveOrderProduct($order_id);
+        return $order_id;
     }
 
     public static function saveOrderProduct($order_id)

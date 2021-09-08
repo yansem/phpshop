@@ -66,7 +66,7 @@ class CartController extends AppController
 
     public function checkoutAction()
     {
-        if(!$_POST){
+        if(!empty($_POST)){
             if(!User::checkAuth()){
                 $user = new User();
                 $data = $_POST;
@@ -89,5 +89,6 @@ class CartController extends AppController
             $order_id = Order::saveOrder($data);
             Order::mailOrder($order_id, $user_email);
         }
+        redirect();
     }
 }

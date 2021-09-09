@@ -18,6 +18,11 @@ $('body').on('change', '.w_sidebar input', function(){
             success: function (res){
                 $('.preloader').delay(500).fadeOut('slow', function (){
                     $('.product-one').html(res).fadeIn();
+                    let url = location.search.replace(/filter(.+?)(&|$)/g, ''); //$2
+                    let newURL = location.pathname + url + (location.search ? "&" : "?") + "filter=" + data;
+                    newURL = newURL.replace('&&', '&');
+                    newURL = newURL.replace('?&', '?');
+                    history.pushState({}, '', newURL);
                 })
             },
             error: function (){
@@ -28,7 +33,6 @@ $('body').on('change', '.w_sidebar input', function(){
     }else{
         window.location = location.pathname;
     }
-    console.log(data);
 })
 
 

@@ -1046,7 +1046,7 @@ a.mask {
 	line-height: 27px;
 	color: #555555;
 	cursor: pointer;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	font-weight: normal;
 	margin-top: 0;
 }

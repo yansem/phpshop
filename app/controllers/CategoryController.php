@@ -30,7 +30,11 @@ class CategoryController extends AppController
         $sql_part = '';
         if(!empty($_GET['filter'])){
             $filter = Filter::getFilter();
-            $sql_part = "AND id IN (SELECT product_id FROM attribute_product WHERE attr_id IN ($filter))";
+            if($filter){
+                $cnt = Filter::getCountGroups($filter);
+                $sql_part = "AND id IN (SELECT product_id FROM attribute_product WHERE attr_id IN ($filter) GROUP BY product_id HAVING
+                COUNT(product_id)=$cnt) ";
+            }
         }
 
         $total = \R::count('product', "category_id IN ($ids) $sql_part");

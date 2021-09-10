@@ -102,10 +102,14 @@ $('#cart .modal-body').on('click', '.del-item', function(){
 })
 
 $('#cart .modal-body').on('click', '.add-item', function(){
-    let id = $(this).data('id');
+    let id = ($(this).data('id'));
+    let mod = null;
+    if(typeof id === 'string'){
+        mod = id.split('-')[1];
+    }
     $.ajax({
         url: '/cart/add',
-        data: {id:id, qty:1},
+        data: {id:id, qty:1, mod:mod},
         type: 'GET',
         success: function (res){
             showCart(res);
@@ -118,7 +122,12 @@ $('#cart .modal-body').on('click', '.add-item', function(){
 
 $('#cart .modal-body').on('click', '.minus-item', function(){
     let id = $(this).data('id');
-    if($('#qty').text()==='1'){
+    let mod = null;
+    if(typeof id === 'string'){
+        mod = id.split('-')[1];
+    }
+    console.log(typeof $(this).data('val'));
+    if($(this).data('val')===1){
         $.ajax({
             url: '/cart/delete',
             data: {id:id},
@@ -134,7 +143,7 @@ $('#cart .modal-body').on('click', '.minus-item', function(){
     }
     $.ajax({
         url: '/cart/add',
-        data: {id:id, qty:-1},
+        data: {id:id, qty:-1, mod:mod},
         type: 'GET',
         success: function (res){
             showCart(res);

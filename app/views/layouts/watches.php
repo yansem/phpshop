@@ -43,7 +43,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </select>
                     </div>
                     <div class="btn-group">
-                        <a class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown">Личный кабинет<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <?php if(!empty($_SESSION['user'])): ?>
                                 <li><a href="#">Добро пожаловать, <?= h($_SESSION['user']['name']); ?></a></li>
@@ -66,7 +66,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <?php if(!empty($_SESSION['cart'])): ?>
                                 <span class="simpleCart_total"><?=$_SESSION['cart.currency']['symbol_left'] . $_SESSION['cart.sum'] . $_SESSION['cart.currency']['symbol_right'];?></span>
                             <?php else: ?>
-                                <span class="simpleCart_total">Empty Cart</span>
+                                <span class="simpleCart_total">Корзина пуста</span>
                             <?php endif; ?>
                         </div>
                     </a>

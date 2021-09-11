@@ -92,7 +92,7 @@
                             <div class="quantity">
                                 <input type="number" size="4" value="1" name="quantity" step="1" min="1">
                             </div>
-                            <a id="productAdd" data-id="<?=$product->id;?>" href="cart/add?id=<?=$product->id;?>" class="add-cart item_add add-to-cart-link">ADD TO CART</a>
+                            <a id="productAdd" data-id="<?=$product->id;?>" href="cart/add?id=<?=$product->id;?>" class="add-cart item_add add-to-cart-link">Добавить в корзину</a>
 
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="tabs">
                     <ul class="menu_drop">
-                        <li class="item1"><a href="#"><img src="images/arrow.png" alt="">Description</a>
+                        <li class="item1"><a href="#"><img src="images/arrow.png" alt="">Описание</a>
                             <ul>
                                 <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing
                                         elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
@@ -116,7 +116,7 @@
                                         clari, fiant sollemnes </a></li>
                             </ul>
                         </li>
-                        <li class="item2"><a href="#"><img src="images/arrow.png" alt="">Additional information</a>
+                        <li class="item2"><a href="#"><img src="images/arrow.png" alt="">Дополнительная информация</a>
                             <ul>
                                 <li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in
                                         vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
@@ -128,7 +128,7 @@
                                         clari, fiant sollemnes </a></li>
                             </ul>
                         </li>
-                        <li class="item3"><a href="#"><img src="images/arrow.png" alt="">Reviews (10)</a>
+                        <li class="item3"><a href="#"><img src="images/arrow.png" alt="">Отзывы</a>
                             <ul>
                                 <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing
                                         elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
@@ -144,7 +144,7 @@
                                         clari, fiant sollemnes </a></li>
                             </ul>
                         </li>
-                        <li class="item4"><a href="#"><img src="images/arrow.png" alt="">Helpful Links</a>
+                        <li class="item4"><a href="#"><img src="images/arrow.png" alt="">Полезные ссылки</a>
                             <ul>
                                 <li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in
                                         vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
@@ -156,7 +156,7 @@
                                         clari, fiant sollemnes </a></li>
                             </ul>
                         </li>
-                        <li class="item5"><a href="#"><img src="images/arrow.png" alt="">Make A Gift</a>
+                        <li class="item5"><a href="#"><img src="images/arrow.png" alt="">Сделать подарок</a>
                             <ul>
                                 <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing
                                         elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
@@ -239,90 +239,6 @@
                         </div>
                     </div>
                 <?php endif; ?>
-            </div>
-            <div class="col-md-3 single-right">
-                <div class="w_sidebar">
-                    <section class="sky-form">
-                        <h4>Catogories</h4>
-                        <div class="row1 scroll-pane">
-                            <div class="col col-4">
-                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>All
-                                    Accessories</label>
-                            </div>
-                            <div class="col col-4">
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Women
-                                    Watches</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Kids
-                                    Watches</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Men
-                                    Watches</label>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="sky-form">
-                        <h4>Brand</h4>
-                        <div class="row1 row2 scroll-pane">
-                            <div class="col col-4">
-                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>kurtas</label>
-                            </div>
-                            <div class="col col-4">
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Sonata</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Titan</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Casio</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Omax</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>shree</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Fastrack</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Sports</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Fossil</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Maxima</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Yepme</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Citizen</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Diesel</label>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="sky-form">
-                        <h4>Colour</h4>
-                        <ul class="w_nav2">
-                            <li><a class="color1" href="#"></a></li>
-                            <li><a class="color2" href="#"></a></li>
-                            <li><a class="color3" href="#"></a></li>
-                            <li><a class="color4" href="#"></a></li>
-                            <li><a class="color5" href="#"></a></li>
-                            <li><a class="color6" href="#"></a></li>
-                            <li><a class="color7" href="#"></a></li>
-                            <li><a class="color8" href="#"></a></li>
-                            <li><a class="color9" href="#"></a></li>
-                            <li><a class="color10" href="#"></a></li>
-                            <li><a class="color12" href="#"></a></li>
-                            <li><a class="color13" href="#"></a></li>
-                            <li><a class="color14" href="#"></a></li>
-                            <li><a class="color15" href="#"></a></li>
-                            <li><a class="color5" href="#"></a></li>
-                            <li><a class="color6" href="#"></a></li>
-                            <li><a class="color7" href="#"></a></li>
-                            <li><a class="color8" href="#"></a></li>
-                            <li><a class="color9" href="#"></a></li>
-                            <li><a class="color10" href="#"></a></li>
-                        </ul>
-                    </section>
-                    <section class="sky-form">
-                        <h4>discount</h4>
-                        <div class="row1 row2 scroll-pane">
-                            <div class="col col-4">
-                                <label class="radio"><input type="radio" name="radio" checked=""><i></i>60 % and
-                                    above</label>
-                                <label class="radio"><input type="radio" name="radio"><i></i>50 % and above</label>
-                                <label class="radio"><input type="radio" name="radio"><i></i>40 % and above</label>
-                            </div>
-                            <div class="col col-4">
-                                <label class="radio"><input type="radio" name="radio"><i></i>30 % and above</label>
-                                <label class="radio"><input type="radio" name="radio"><i></i>20 % and above</label>
-                                <label class="radio"><input type="radio" name="radio"><i></i>10 % and above</label>
-                            </div>
-                        </div>
-                    </section>
-                </div>
             </div>
             <div class="clearfix"></div>
         </div>

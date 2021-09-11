@@ -9,7 +9,6 @@
                                                                                 alt=""/></a>
                     <div class="product-bottom">
                         <h3><?= $product->title; ?></h3>
-                        <p>Explore Now</p>
                         <h4>
                             <a data-id="<?= $product->id; ?>" class="add-to-cart-link"
                                href="cart/add?id=<?= $product->id; ?>"><i></i></a> <span

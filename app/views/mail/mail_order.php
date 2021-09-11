@@ -23,8 +23,8 @@
         <tr>
             <td style="padding: 8px; border: 1px solid #ddd;"><?=$item['title'] ?></td>
             <td style="padding: 8px; border: 1px solid #ddd;"><?=$item['qty'] ?></td>
-            <td style="padding: 8px; border: 1px solid #ddd;"><?=$item['price'] ?></td>
-            <td style="padding: 8px; border: 1px solid #ddd;"><?=$item['price'] * $item['qty'] ?></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><?=$_SESSION['cart.currency']['symbol_left']  . $item['price'] . $_SESSION['cart.currency']['symbol_right'] ?></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><?=$_SESSION['cart.currency']['symbol_left'] . $item['price'] * $item['qty'] . $_SESSION['cart.currency']['symbol_right'] ?></td>
         </tr>
     <?php endforeach;?>
     <tr>

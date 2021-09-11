@@ -95,7 +95,6 @@ $('#cart .modal-body').on('focusin', '#qty', function(){
         mod = id.split('-')[1];
     }
     $(this).blur(function(e){
-        console.log(oldQty,newQty);
         newQty = $(this).val();
         e.stopImmediatePropagation();
         $.ajax({
@@ -121,7 +120,6 @@ $('body').on('focusin', '#qty', function(){
         mod = id.split('-')[1];
     }
     $(this).blur(function(e){
-        console.log(oldQty,newQty);
         newQty = $(this).val();
         e.stopImmediatePropagation();
         $.ajax({
@@ -178,7 +176,6 @@ $('#cart .modal-body').on('click', '.minus-item-m', function(){
     if(typeof id === 'string'){
         mod = id.split('-')[1];
     }
-    console.log(typeof $(this).data('val'));
     if($(this).data('val')===1){
         $.ajax({
             url: '/cart/delete',
@@ -217,7 +214,7 @@ function showCart(cart){
     if($('#cart .cart-sum').text()){
         $('.simpleCart_total').html($('#cart .cart-sum').text());
     }else{
-        $('.simpleCart_total').html('Empty Сart')
+        $('.simpleCart_total').html('Корзина пуста')
     }
 }
 
@@ -321,11 +318,10 @@ $('body').on('click', '.minus-item', function(){
 
 function showOrder(cart){
     $('.content').html(cart);
-    console.log($('.cart-sum').text());
     if($('.cart-sum').text()){
         $('.simpleCart_total').html($('.cart-sum').text());
     }else{
-        $('.simpleCart_total').html('Empty Сart')
+        $('.simpleCart_total').html('Корзина пуста')
     }
 }
 

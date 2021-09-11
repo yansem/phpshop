@@ -24,12 +24,12 @@
                         <div class="col-md-6 account-left">
                             <form method="post" action="user/login" id="login" role="form" data-toggle="validator">
                                 <div class="form-group has-feedback">
-                                    <label for="login">Login</label>
+                                    <label for="login">Логин</label>
                                     <input type="text" name="login" class="form-control" id="login" placeholder="Login" required>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <label for="pasword">Password</label>
+                                    <label for="pasword">Пароль</label>
                                     <input type="password" name="password" class="form-control" id="pasword" placeholder="Password" required>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>

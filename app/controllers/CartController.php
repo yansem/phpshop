@@ -25,8 +25,14 @@ class CartController extends AppController
         }
         $cart = new Cart();
         $cart->addToCart($product, $qty, $mod);
-        if ($this->isAjax()) {
-            $this->loadView('cart_modal');
+        if(!empty($_GET['source'])){
+            if ($this->isAjax()) {
+                $this->loadView('view');
+            }
+        }else{
+            if ($this->isAjax()) {
+                $this->loadView('cart_modal');
+            }
         }
         redirect();
     }
@@ -43,10 +49,16 @@ class CartController extends AppController
             $cart = new Cart();
             $cart->deleteItem($id);
         }
-
-        if ($this->isAjax()) {
-            $this->loadView('cart_modal');
+        if(!empty($_GET['source'])){
+            if ($this->isAjax()) {
+                $this->loadView('view');
+            }
+        }else{
+            if ($this->isAjax()) {
+                $this->loadView('cart_modal');
+            }
         }
+
         redirect();
     }
 

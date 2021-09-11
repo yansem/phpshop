@@ -196,6 +196,88 @@ function clearCart(){
 }
 /*Cart*/
 
+/*Order*/
+
+$('body').on('click', '.del-item', function(){
+    let id = $(this).data('id');
+    // console.log(id);
+    // return true;
+    $.ajax({
+        url: '/cart/delete',
+        data: {id:id, source:'order'},
+        type: 'GET',
+        success: function (res){
+            showOrder(res);
+        },
+        error: function (){
+            alert('Ошибка! Попробуйте позже');
+        }
+    });
+})
+
+$('body').on('click', '.add-item', function(){
+    let id = ($(this).data('id'));
+    let mod = null;
+    if(typeof id === 'string'){
+        mod = id.split('-')[1];
+    }
+    $.ajax({
+        url: '/cart/add',
+        data: {id:id, qty:1, mod:mod, source:'order'},
+        type: 'GET',
+        success: function (res){
+            showOrder(res);
+        },
+        error: function (){
+            alert('Ошибка! Попробуйте позже');
+        }
+    });
+})
+
+$('body').on('click', '.minus-item', function(){
+    let id = $(this).data('id');
+    let mod = null;
+    if(typeof id === 'string'){
+        mod = id.split('-')[1];
+    }
+    if($(this).data('val')===1){
+        $.ajax({
+            url: '/cart/delete',
+            data: {id:id, source:'order'},
+            type: 'GET',
+            success: function (res){
+                showOrder(res);
+            },
+            error: function (){
+                alert('Ошибка! Попробуйте позже');
+            }
+        });
+        return false;
+    }
+    $.ajax({
+        url: '/cart/add',
+        data: {id:id, qty:-1, mod:mod, source:'order'},
+        type: 'GET',
+        success: function (res){
+            showOrder(res);
+        },
+        error: function (){
+            alert('Ошибка! Попробуйте позже');
+        }
+    });
+})
+
+function showOrder(cart){
+    $('.content').html(cart);
+    console.log($('.cart-sum').text());
+    if($('.cart-sum').text()){
+        $('.simpleCart_total').html($('.cart-sum').text());
+    }else{
+        $('.simpleCart_total').html('Empty Сart')
+    }
+}
+
+/*Order*/
 
 $('#currency').change(function (){
     window.location = 'currency/change?curr=' + $(this).val();

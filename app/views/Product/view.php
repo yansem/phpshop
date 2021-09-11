@@ -235,7 +235,7 @@
                                 </div>
                             <?php endforeach; ?>
                             <div class="clearfix"></div>
-                            <h3><a href="product/<?=$product->alias;?>/related">Все просмотренные товары</a></h3>
+                            <h3><a href="product/related">Все просмотренные товары</a></h3>
                         </div>
                     </div>
                 <?php endif; ?>

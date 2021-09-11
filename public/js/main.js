@@ -86,6 +86,58 @@ $('body').on('click', '.add-to-cart-link', function (e) {
     });
 });
 
+$('#cart .modal-body').on('focusin', '#qty', function(){
+    let id = ($(this).data('id'));
+    let mod = null;
+    let oldQty = $(this).val();
+    let newQty = null;
+    if(typeof id === 'string'){
+        mod = id.split('-')[1];
+    }
+    $(this).blur(function(e){
+        console.log(oldQty,newQty);
+        newQty = $(this).val();
+        e.stopImmediatePropagation();
+        $.ajax({
+            url: '/cart/addNew',
+            data: {id:id, oldQty:oldQty, qty:newQty, mod:mod, new:'new'},
+            type: 'GET',
+            success: function (res){
+                showCart(res);
+            },
+            error: function (){
+                alert('Ошибка! Попробуйте позже');
+            }
+        });
+    })
+})
+
+$('body').on('focusin', '#qty', function(){
+    let id = ($(this).data('id'));
+    let mod = null;
+    let oldQty = $(this).val();
+    let newQty = null;
+    if(typeof id === 'string'){
+        mod = id.split('-')[1];
+    }
+    $(this).blur(function(e){
+        console.log(oldQty,newQty);
+        newQty = $(this).val();
+        e.stopImmediatePropagation();
+        $.ajax({
+            url: '/cart/addNew',
+            data: {id:id, oldQty:oldQty, qty:newQty, mod:mod, new:'new', source:'order'},
+            type: 'GET',
+            success: function (res){
+                showOrder(res);
+            },
+            error: function (){
+                alert('Ошибка! Попробуйте позже');
+            }
+        });
+    })
+})
+
 $('#cart .modal-body').on('click', '.del-item-m', function(){
     let id = $(this).data('id');
     $.ajax({

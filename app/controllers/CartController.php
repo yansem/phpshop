@@ -37,6 +37,36 @@ class CartController extends AppController
         redirect();
     }
 
+    public function addNewAction()
+    {
+        $id = !empty($_GET['id']) ? (int)$_GET['id'] : null;
+        $oldQty = !empty($_GET['qty']) ? (int)$_GET['oldQty'] : null;
+        $qty = !empty($_GET['qty']) ? (int)$_GET['qty'] : null;
+        $mod_id = !empty($_GET['mod']) ? (int)$_GET['mod'] : null;
+        $mod = null;
+        if ($id) {
+            $product = \R::findOne('product', 'id=?', [$id]);
+            if (!$product) {
+                return false;
+            }
+        }
+        if ($mod_id) {
+            $mod = \R::findOne('modification', 'id=? AND product_id=?', [$mod_id, $id]);
+        }
+        $cart = new Cart();
+        $cart->addNewToCart($product, $oldQty, $qty, $mod);
+        if(!empty($_GET['source'])){
+            if ($this->isAjax()) {
+                $this->loadView('view');
+            }
+        }else{
+            if ($this->isAjax()) {
+                $this->loadView('cart_modal');
+            }
+        }
+        redirect();
+    }
+
     public function showAction()
     {
         $this->loadView('cart_modal');

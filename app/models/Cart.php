@@ -36,6 +36,27 @@ class Cart extends AppModel
 
     }
 
+    public function addNewToCart($product, $oldQty, $qty, $mod=null)
+    {
+        if(!isset($_SESSION['cart.currency'])){
+            $_SESSION['cart.currency'] = App::$app->getProperty('currency');
+        }
+        if($mod){
+            $ID = "{$product->id}-{$mod->id}";
+            $title = "{$product->title} ({$mod->title})";
+            $price = $mod->price;
+        }else{
+            $ID = $product->id;
+            $title = $product->title;
+            $price = $product->price;
+        }
+
+        $_SESSION['cart'][$ID]['qty'] = $qty;
+        $_SESSION['cart.qty'] = $_SESSION['cart.qty'] - $oldQty + $qty;
+        $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - $oldQty* ($price * $_SESSION['cart.currency']['value']) + $qty * ($price * $_SESSION['cart.currency']['value']);
+
+    }
+
     public function deleteItem($id)
     {
         $_SESSION['cart.qty'] -= $_SESSION['cart'][$id]['qty'];

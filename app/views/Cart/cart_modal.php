@@ -17,11 +17,11 @@
                 <tr>
                     <td class="fit text-center"><a href="product/<?=$item['alias']; ?>"><img src="images/<?=$item['img']; ?>" alt=""></a></td>
                     <td class="fit text-center"><?= $item['title']; ?></td>
-                    <td class="fit text-center" id="qty"><?= $item['qty']; ?></span></td>
-                    <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-plus text-success add-item" aria-hidden="true"></span></td>
-                    <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-minus text-secondary minus-item" aria-hidden="true" data-val="<?= $item['qty']; ?>"></span></td>
+                    <td class="fit text-center" ><input id="qty" type="number" class="fit text-center" min="1" value="<?= $item['qty']; ?>"></span></td>
+                    <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-plus text-success add-item-m" aria-hidden="true"></span></td>
+                    <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-minus text-secondary minus-item-m" aria-hidden="true" data-val="<?= $item['qty']; ?>"></span></td>
                     <td class="fit"><?= $_SESSION['cart.currency']['symbol_left'] . $item['price'] . $_SESSION['cart.currency']['symbol_right']; ?></td>
-                    <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
+                    <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-remove text-danger del-item-m" aria-hidden="true"></span></td>
                 </tr>
             <?php endforeach; ?>
             <tr>

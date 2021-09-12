@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <?=$this->getMeta();?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/adminlte/">

@@ -28,20 +28,6 @@ class User extends AppModel
         ]
     ];
 
-    public function getErrors()
-    {
-        $errors = '<ul>';
-        foreach ($this->errors as $error)
-        {
-            foreach ($error as $item)
-            {
-                $errors .= "<li>$item</li>";
-            }
-        }
-        $errors .= '</ul>';
-        $_SESSION['error'] = $errors;
-    }
-
     public function checkUnique()
     {
         $user = \R::findOne('user', 'login=? OR email=?', [$this->attributes['login'], $this->attributes['email']]);

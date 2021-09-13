@@ -2,6 +2,9 @@
 
 namespace app\controllers\admin;
 
+use app\models\Category;
+use phpshop\Cache;
+
 class CategoryController extends AppController
 {
     public function indexAction()
@@ -30,5 +33,22 @@ class CategoryController extends AppController
         $_SESSION['success'] = 'Категория удалена';
         redirect();
 
+    }
+
+    public function addAction()
+    {
+        $this->setMeta('Новая категори');
+        if(!empty($_POST)){
+            $category = new Category();
+            $data = $_POST;
+            $category->load($data);
+            if(!$category->validate($data)){
+                $category->getErrors();
+                redirect();
+            }
+            if($id=$category->save('category')){
+
+            }
+        }
     }
 }

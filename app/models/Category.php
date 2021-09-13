@@ -6,6 +6,18 @@ use phpshop\App;
 
 class Category extends AppModel
 {
+    public $attributes = [
+        'title' => '',
+        'parent_id' => '',
+        'keywords' => '',
+        'description' => '',
+    ];
+
+    public $rules = [
+        'required' =>
+            ['title']
+    ];
+
     public function getIds($id)
     {
         $cats = App::$app->getProperty('cats');

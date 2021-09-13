@@ -5,7 +5,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="<?=ADMIN;?>"><i class="fa fa-dashboard"></i> Главная</a></li>
-        <li><i class="fa fa-dashboard"></i> Список заказов</li>
+        <li class="active"><i class="fa fa-dashboard"></i> Список заказов</li>
     </ol>
 </section>
 

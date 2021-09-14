@@ -264,7 +264,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="<?=ADMIN;?>/user/edit?id<?=$_SESSION['user']['id'];?>" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="<?=ADMIN;?>/user/edit?id=<?=$_SESSION['user']['id'];?>" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="/user/logout" class="btn btn-default btn-flat">Sign out</a>

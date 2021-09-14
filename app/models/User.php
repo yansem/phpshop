@@ -5,11 +5,13 @@ namespace app\models;
 class User extends AppModel
 {
     public $attributes = [
+        'id' => '',
         'login' => '',
         'password' => '',
         'name' => '',
         'email' => '',
         'address' => '',
+        'role' => 'user',
     ];
 
     public $rules = [

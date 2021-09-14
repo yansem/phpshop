@@ -22,6 +22,26 @@ class UserController extends AppController
 
     public function editAction()
     {
+        if(!empty($_POST)) {
+            $id = $this->getRequestID(false);
+            $user = new \app\models\admin\User();
+            $data = $_POST;
+            $user->load($data);
+            if(!$user->attributes['password']){
+                unset($user->attributes['password']);
+            }else{
+                $user->attributes['password'] = password_hash($user->attributes['password'], PASSWORD_DEFAULT);
+            }
+            if (!$user->validate($data) || !$user->checkUnique()) {
+                $user->getErrors();
+                redirect();
+            }
+            if ($user->update('user', $id)) {
+                $_SESSION['success'] = 'Изменения сохранены';
+            }
+            redirect();
+        }
+
         $user_id = $this->getRequestID();
         $user = \R::load('user', $user_id);
         $orders = \R::getAll("SELECT `order`.`id`, `order`.`user_id`, `order`.`status`, `order`.`date`, `order`.`update_at`, `order`.`currency`, ROUND(SUM(`order_product`.`price`), 2) AS `sum` FROM `order`

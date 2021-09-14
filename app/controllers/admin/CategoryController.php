@@ -2,6 +2,7 @@
 
 namespace app\controllers\admin;
 
+use app\models\AppModel;
 use app\models\Category;
 use phpshop\Cache;
 
@@ -37,7 +38,6 @@ class CategoryController extends AppController
 
     public function addAction()
     {
-        $this->setMeta('Новая категори');
         if(!empty($_POST)){
             $category = new Category();
             $data = $_POST;
@@ -47,8 +47,14 @@ class CategoryController extends AppController
                 redirect();
             }
             if($id=$category->save('category')){
-
+                $alias = AppModel::createAlias('category', 'alias', $data['title'], $id);
+                $cat = \R::load('category', $id);
+                $cat->alias = $alias;
+                \R::store($cat);
+                $_SESSION['success'] = 'Категория добавлена';
             }
+            redirect();
         }
+        $this->setMeta('Новая категори');
     }
 }

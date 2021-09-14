@@ -4,6 +4,7 @@ namespace app\controllers\admin;
 
 use app\models\AppModel;
 use app\models\Category;
+use phpshop\App;
 use phpshop\Cache;
 
 class CategoryController extends AppController
@@ -56,5 +57,32 @@ class CategoryController extends AppController
             redirect();
         }
         $this->setMeta('Новая категори');
+    }
+
+    public function editAction()
+    {
+        if(!empty($_POST)){
+            $id = $this->getRequestID(false);
+            $cat = new Category();
+            $data = $_POST;
+            $cat->load($data);
+            if(!$cat->validate($data)){
+                $cat->getErrors();
+                redirect();
+            }
+            if($cat->update('category', $id)){
+                $alias = AppModel::createAlias('category', 'alias', $data['title'], $id);
+                $cat = \R::load('category', $id);
+                $cat->alias = $alias;
+                \R::store($cat);
+                $_SESSION['success'] = 'Изменения сохранены';
+            }
+            redirect();
+        }
+        $id = $this->getRequestID();
+        $cat = \R::load('category', $id);
+        App::$app->setProperty('parent_id', $cat->parent_id);
+        $this->setMeta("Редактирование категории {$cat->title}");
+        $this->set(compact('cat'));
     }
 }

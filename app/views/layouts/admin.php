@@ -583,6 +583,7 @@
 <script src="/js/validator.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<script src="bower_components/ckeditor/ckeditor.js"></script>
 <script src="my.js"></script>
 
 <?php

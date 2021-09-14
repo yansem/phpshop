@@ -1,3 +1,5 @@
+CKEDITOR.replace('editor1');
+
 $('.delete').click(function (){
     let res = confirm('Подтвердите действие');
     if(!res) return false;

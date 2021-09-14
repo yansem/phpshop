@@ -52,6 +52,11 @@ class UserController extends AppController
         $this->set(compact('user', 'orders'));
     }
 
+    public function addAction()
+    {
+        $this->setMeta('Добавление пользователя');
+    }
+
     public function loginAdminAction()
     {
         $this->layout = 'login';

@@ -32,3 +32,9 @@
     right: 0;
     top: 0;
 }
+
+#reset_filter{
+    background-color: #dd4b39;
+    border-color: #d73925;
+    color: #fff;
+}

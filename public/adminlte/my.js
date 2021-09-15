@@ -13,3 +13,8 @@ $('.sidebar-menu a').each(function (){
 
 // CKEDITOR.replace('editor1');
 $('#editor1').ckeditor();
+
+$('#reset_filter').click(function (){
+    $('#filter input[type=radio]').prop('checked', false);
+    return false;
+})

@@ -8,5 +8,9 @@ return [
     'smtp_port'=>'465',
     'smtp_protocol'=>'ssl',
     'smtp_login'=>'janchevsem@mail.ru',
-    'smtp_password'=>'B1LV01EK6UXZlNjvW1dC'
+    'smtp_password'=>'B1LV01EK6UXZlNjvW1dC',
+    'img_width' => 125,
+    'img_height' => 200,
+    'gallery_width' => 700,
+    'gallery_height' => 1000,
 ];

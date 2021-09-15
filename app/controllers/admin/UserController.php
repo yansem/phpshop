@@ -59,10 +59,9 @@ class UserController extends AppController
 
     public function loginAdminAction()
     {
-        $this->layout = 'login';
         if(!empty($_POST)){
             $user = new User();
-            if($user->login(true)){
+            if(!$user->login(true)){
                 $_SESSION['error'] = 'Логин/пароль введены неверно';
             }
             if(User::isAdmin()){
@@ -71,5 +70,6 @@ class UserController extends AppController
                 redirect();
             }
         }
+        $this->layout = 'login';
     }
 }

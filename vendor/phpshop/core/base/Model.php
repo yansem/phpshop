@@ -30,7 +30,7 @@ abstract class Model
 
     public function save($table)
     {
-        $tbl = \R::dispense($table);
+        $tbl = \R::xdispense($table);
         foreach ($this->attributes as $name => $value)
         {
             $tbl->$name = $value;

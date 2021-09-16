@@ -346,6 +346,28 @@
                         <li><a href="<?= ADMIN ?>/user/add">Добавить пользователя</a></li>
                     </ul>
                 </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-usd"></i> <span>Валюты</span>
+                        <span class="pull-right-container">
+<i class="fa fa-angle-left pull-right"></i>
+</span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="<?= ADMIN ?>/currency">Список валют</a></li>
+                        <li><a href="<?= ADMIN ?>/currency/add">Добавить валюту</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-filter"></i> <span>Фильтры</span>
+                        <span class="pull-right-container">
+<i class="fa fa-angle-left pull-right"></i>
+</span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="<?= ADMIN ?>/filter/attribute-group">Группы фильтров</a></li>
+                        <li><a href="<?= ADMIN ?>/filter/attribute">Фильтры</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->

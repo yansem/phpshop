@@ -47,6 +47,9 @@ class FilterController extends AppController
 
     public function attributeAction()
     {
-
+        $attrs = \R::getAssoc("SELECT attribute_value.*, attribute_group.title FROM attribute_value JOIN
+attribute_group ON attribute_value.attr_group_id=attribute_group.id");
+        $this->setMeta('Фильтры');
+        $this->set(compact('attrs'));
     }
 }

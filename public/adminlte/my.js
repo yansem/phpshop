@@ -1,7 +1,37 @@
 $('.delete').click(function (){
     let res = confirm('Подтвердите действие');
     if(!res) return false;
-})
+});
+
+$('.del-item').on('click', function(){
+    var res = confirm('Подтвердите действие');
+    if(!res) return false;
+    var $this = $(this),
+        id = $this.data('id'),
+        src = $this.data('src');
+    $.ajax({
+        url: adminpath + '/product/delete-gallery',
+        data: {id: id, src: src},
+        type: 'POST',
+        beforeSend: function(){
+            $this.closest('.file-upload').find('.overlay').css({'display':'block'});
+        },
+        success: function(res){
+            setTimeout(function(){
+                $this.closest('.file-upload').find('.overlay').css({'display':'none'});
+                if(res == 1){
+                    $this.fadeOut();
+                }
+            }, 1000);
+        },
+        error: function(){
+            setTimeout(function(){
+                $this.closest('.file-upload').find('.overlay').css({'display':'none'});
+                alert('Ошибка');
+            }, 1000);
+        }
+    });
+});
 
 let loc = window.location.protocol + '//' + window.location.host + window.location.pathname;
 $('.sidebar-menu a').each(function (){

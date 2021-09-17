@@ -24,12 +24,12 @@ class Filter
         $this->groups = $cache->get('filter_group');
         if(!$this->groups){
             $this->groups = $this->getGroup();
-            $cache->set('filter_group', $this->groups);
+            $cache->set('filter_group', $this->groups, 30);
         }
         $this->attrs = $cache->get('filter_attrs');
         if(!$this->attrs){
             $this->attrs = self::getAttrs();
-            $cache->set('filter_attrs', $this->attrs);
+            $cache->set('filter_attrs', $this->attrs, 30);
         }
 //        debug($this->groups);
 //        debug($this->attrs);

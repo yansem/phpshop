@@ -7,6 +7,30 @@ use app\models\admin\FilterGroup;
 
 class FilterController extends AppController
 {
+    public function  groupEditAction()
+    {
+        if (!empty($_POST)) {
+            if (!empty($_POST)) {
+                $id = $this->getRequestID(false);
+                $group = new FilterGroup();
+                $data = $_POST;
+                $group->load($data);
+                if (!$group->validate($data)) {
+                    $group->getErrors();
+                    redirect();
+                }
+                if ($group->update('attribute_group', $id)) {
+                    $_SESSION['success'] = 'Изменения сохранены';
+                    redirect();
+                }
+            }
+        }
+        $id = $this->getRequestID();
+        $group = \R::load('attribute_group', $id);
+        $this->setMeta("Редактирование группы {$group->title}");
+        $this->set(compact('group'));
+    }
+
     public function groupAddAction()
     {
         if(!empty($_POST)){

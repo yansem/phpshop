@@ -61,6 +61,18 @@ related_product.related_id=product.id WHERE related_product.product_id=?", [$id]
         $this->set( compact('product','filter', 'related_product', 'gallery'));
     }
 
+    public function deleteAction()
+    {
+        $id = $this->getRequestID();
+        \R::exec("DELETE FROM product WHERE id=?", [$id]);
+        \R::exec("DELETE FROM attribute_product WHERE product_id=?", [$id]);
+        \R::exec("DELETE FROM modification WHERE product_id=?", [$id]);
+        \R::exec("DELETE FROM gallery WHERE product_id=?", [$id]);
+        $_SESSION['success'] = 'Продукт удален';
+        redirect();
+
+    }
+
     public function addAction()
     {
         if(!empty($_POST)){

@@ -2,6 +2,8 @@
 
 namespace app\controllers\admin;
 
+use app\models\admin\Currency;
+
 class CurrencyController extends AppController
 {
     public function indexAction()
@@ -9,5 +11,24 @@ class CurrencyController extends AppController
         $currencies = \R::findAll('currency');
         $this->setMeta('Список валют');
         $this->set(compact('currencies'));
+    }
+
+    public function addAction()
+    {
+        if(!empty($_POST)){
+            $currency = new Currency();
+            $data = $_POST;
+            $currency->load($data);
+            $currency->attributes['base'] = $currency->attributes['base'] ? '1' : '0';
+            if(!$currency->validate($data)){
+                $currency->getErrors();
+                redirect();
+            }
+            if($currency->save('currency')){
+                $_SESSION['success'] = 'Валюта добавлена';
+                redirect();
+            }
+        }
+        $this->setMeta('Новая валюта');
     }
 }

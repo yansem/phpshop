@@ -159,4 +159,11 @@ related_product.related_id=product.id WHERE related_product.product_id=?", [$id]
         }
         return;
     }
+
+    public function modificationAction()
+    {
+        $modification = \R::getAll("SELECT modification.*, product.title AS product_title FROM modification JOIN product ON modification.product_id=product.id");
+        $this->setMeta('Модификации');
+        $this->set(compact('modification'));
+    }
 }

@@ -332,6 +332,7 @@
                     <ul class="treeview-menu">
                         <li><a href="<?= ADMIN ?>/product">Список товаров</a></li>
                         <li><a href="<?= ADMIN ?>/product/add">Добавить товар</a></li>
+                        <li><a href="<?= ADMIN ?>/product/modification">Модификации</a></li>
                     </ul>
                 </li>
                 <li><a href="<?= ADMIN ?>/cache"><i class="fa fa-database"></i> <span>Кэширование</span></a></li>

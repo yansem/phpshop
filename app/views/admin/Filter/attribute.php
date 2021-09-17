@@ -33,7 +33,7 @@
                                 <td><?=$item['title'];?></td>
                                 <td>
                                     <a href="<?=ADMIN;?>/filter/attribute-edit?id=<?=$id;?>"><i class="fa fa-fw fa-eye"></i></a>
-                                    <a class="delete" href="<?=ADMIN;?>/filter/attribute-delete?id=<?=id;?>"><i class="fa fa-fw fa-close text-danger"></i></a>
+                                    <a class="delete" href="<?=ADMIN;?>/filter/attribute-delete?id=<?=$id;?>"><i class="fa fa-fw fa-close text-danger"></i></a>
                                 </td>
                                 <?php endforeach; ?>
                             </tr>

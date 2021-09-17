@@ -119,4 +119,13 @@ attribute_group ON attribute_value.attr_group_id=attribute_group.id");
         $this->setMeta('Новый фильтр');
         $this->set(compact('group'));
     }
+
+    public function attributeDeleteAction()
+    {
+        $id = $this->getRequestID();
+        \R::exec('DELETE FROM attribute_product WHERE attr_id=?', [$id]);
+        \R::exec('DELETE FROM attribute_value WHERE id=?', [$id]);
+        $_SESSION['success'] = 'Атрибут удален';
+        redirect();
+    }
 }

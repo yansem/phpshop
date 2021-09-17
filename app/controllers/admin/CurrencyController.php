@@ -13,6 +13,15 @@ class CurrencyController extends AppController
         $this->set(compact('currencies'));
     }
 
+    public function deleteAction()
+    {
+        $id = $this->getRequestID();
+        $currency = \R::load('currency', $id);
+        \R::trash($currency);
+        $_SESSION['success'] = 'Валюта удалена';
+        redirect();
+    }
+
     public function editAction(){
         if(!empty($_POST)){
             $id = $this->getRequestID(false);

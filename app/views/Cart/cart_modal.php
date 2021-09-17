@@ -21,7 +21,7 @@
                     <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-plus text-success add-item-m" aria-hidden="true"></span></td>
                     <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-minus text-secondary minus-item-m" aria-hidden="true" data-val="<?= $item['qty']; ?>"></span></td>
                     <td class="fit"><?= $_SESSION['cart.currency']['symbol_left'] . $item['price'] . $_SESSION['cart.currency']['symbol_right']; ?></td>
-                    <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-remove text-danger del-item-m" aria-hidden="true"></span></td>
+                    <td class="fit"><span data-id="<?= $id; ?>" class="glyphicon glyphicon-remove text-danger delete del-item-m" aria-hidden="true"></span></td>
                 </tr>
             <?php endforeach; ?>
             <tr>

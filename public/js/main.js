@@ -1,3 +1,12 @@
+$('#cart .modal-body').on('click', '.delete', function(){
+    let res = confirm('Подтвердите действие');
+    if(!res) return false;
+});
+$('body').on('click', '.delete', function(){
+    let res = confirm('Подтвердите действие');
+    if(!res) return false;
+})
+
 /* Filters */
 $('body').on('change', '.w_sidebar input', function(){
     let checked = $('.w_sidebar input:checked');

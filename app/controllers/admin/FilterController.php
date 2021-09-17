@@ -78,6 +78,29 @@ attribute_group ON attribute_value.attr_group_id=attribute_group.id");
         $this->set(compact('attrs'));
     }
 
+    public function attributeEditAction()
+    {
+        if(!empty($_POST)){
+            $id = $this->getRequestID(false);
+            $attr = new FilterAttr();
+            $data = $_POST;
+            $attr->load($data);
+            if(!$attr->validate($data)){
+                $attr->getErrors();
+                redirect();
+            }
+            if($attr->update('attribute_value', $id)){
+                $_SESSION['success'] = 'Изменения сохранены';
+                redirect();
+            }
+        }
+        $id = $this->getRequestID();
+        $attr = \R::load('attribute_value', $id);
+        $group = \R::findAll('attribute_group');
+        $this->setMeta("Редактирование фильтра {$attr->value}");
+        $this->set(compact('attr','group'));
+    }
+
     public function attributeAddAction(){
         if(!empty($_POST)){
             $attr = new FilterAttr();

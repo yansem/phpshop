@@ -2,6 +2,7 @@
 
 namespace app\controllers\admin;
 
+use app\models\admin\Modification;
 use app\models\admin\Product;
 use app\models\AppModel;
 use phpshop\App;
@@ -165,5 +166,27 @@ related_product.related_id=product.id WHERE related_product.product_id=?", [$id]
         $modification = \R::getAll("SELECT modification.*, product.title AS product_title FROM modification JOIN product ON modification.product_id=product.id");
         $this->setMeta('Модификации');
         $this->set(compact('modification'));
+    }
+
+    public function modificationAddAction()
+    {
+        if(!empty($_POST)){
+            $modification = new Modification();
+            $data = $_POST;
+            $modification->load($data);
+            if(!$modification->validate($data)){
+                $modification->getErrors();
+                redirect();
+            }
+            if($modification->save('modification')){
+                $_SESSION['success'] = 'Модификация добавлена';
+                redirect();
+            }
+
+        }
+        $product = \R::findAll('product');
+        $this->setMeta('Новая модификация');
+        $this->set(compact('product'));
+
     }
 }

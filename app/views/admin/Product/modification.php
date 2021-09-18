@@ -17,6 +17,7 @@
             <div class="box">
                 <div class="box-body">
                     <div class="table-responsive">
+                        <a href="<?=ADMIN;?>/product/modification-add" class="btn btn-primary"><i class="fa fa-fw fa-plus"></i>Добавить модификацию</a>
                         <table class="table table-bordered table-hover">
                             <thead>
                             <tr>

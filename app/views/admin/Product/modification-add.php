@@ -5,7 +5,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="<?=ADMIN;?>"><i class="fa fa-dashboard"></i> Главная</a></li>
-        <li><a href="<?=ADMIN;?>/product">Список товаров</a></li>
+        <li><a href="<?=ADMIN;?>/product/modification">Модификации</a></li>
         <li class="active">Новая модификация</li>
     </ol>
 </section>

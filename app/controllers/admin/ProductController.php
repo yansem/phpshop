@@ -187,6 +187,28 @@ related_product.related_id=product.id WHERE related_product.product_id=?", [$id]
         $product = \R::findAll('product');
         $this->setMeta('Новая модификация');
         $this->set(compact('product'));
+    }
 
+    public function modificationEditAction()
+    {
+        if(!empty($_POST)){
+            $id = $this->getRequestID(false);
+            $modification = new Modification();
+            $data = $_POST;
+            $modification->load($data);
+            if(!$modification->validate($data)){
+                $modification->getErrors();
+                redirect();
+            }
+            if($modification->update('modification', $id)){
+                $_SESSION['success'] = 'Изменения сохранены';
+                redirect();
+            }
+        }
+        $id = $this->getRequestID();
+        $modification = \R::load('modification', $id);
+        $product = \R::findAll('product');
+        $this->setMeta('Редактирование модификации');
+        $this->set(compact('modification', 'product'));
     }
 }

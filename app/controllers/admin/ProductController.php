@@ -211,4 +211,13 @@ related_product.related_id=product.id WHERE related_product.product_id=?", [$id]
         $this->setMeta('Редактирование модификации');
         $this->set(compact('modification', 'product'));
     }
+
+    public function modificationDeleteAction()
+    {
+        $id = $this->getRequestID();
+        $modification = \R::load('modification', $id);
+        \R::trash($modification);
+        $_SESSION['success'] = 'Модификация удалена';
+        redirect();
+    }
 }

@@ -1,7 +1,9 @@
+// confirm delete cart-modal
 $('#cart .modal-body').on('click', '.delete', function(){
     let res = confirm('Подтвердите действие');
     if(!res) return false;
 });
+// confirm delete order
 $('body').on('click', '.delete', function(){
     let res = confirm('Подтвердите действие');
     if(!res) return false;
@@ -105,6 +107,10 @@ $('#cart .modal-body').on('focusin', '#qty', function(){
     }
     $(this).blur(function(e){
         newQty = $(this).val();
+        if(newQty === '' || newQty === '0'){
+            newQty = oldQty;
+        }
+
         e.stopImmediatePropagation();
         $.ajax({
             url: '/cart/addNew',
@@ -130,6 +136,9 @@ $('body').on('focusin', '#qty', function(){
     }
     $(this).blur(function(e){
         newQty = $(this).val();
+        if(newQty === '' || newQty === '0'){
+            newQty = oldQty;
+        }
         e.stopImmediatePropagation();
         $.ajax({
             url: '/cart/addNew',

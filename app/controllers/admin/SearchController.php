@@ -21,7 +21,9 @@ class SearchController extends AppController
         $count = count($products);
         $pagination = new Pagination($page, $perpage, $count);
         $start = $pagination->getStart();
-        $products = \R::find('product', "title LIKE ? AND status = '1' LIMIT $start, $perpage", ["%{$query}%"]);
+        $products = \R::getAll("SELECT product.*, category.title AS cat FROM product JOIN category ON
+    category.id=product.category_id WHERE product.title LIKE ? AND status = '1' ORDER BY product.title LIMIT $start, $perpage", ["%{$query}%"]);
+//        $products = \R::find('product', "title LIKE ? AND status = '1' LIMIT $start, $perpage", ["%{$query}%"]);
 
 
         $this->setMeta('Поиск по: ' . h($query));

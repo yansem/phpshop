@@ -83,4 +83,12 @@ class UserController extends AppController
         }
         $this->setMeta('Изменение личных данных');
     }
+
+    public function ordersAction()
+    {
+        if(!User::checkAuth()) redirect('/user/login');
+        $orders = \R::findAll('order', 'user_id', [$_SESSION['user']['id']]);
+        $this->setMeta('История заказов');
+        $this->set(compact('orders'));
+    }
 }

@@ -9,6 +9,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
     <?= $this->getMeta(); ?>
     <base href="/">
+    <?php if(!empty($canonical)): ?>
+        <link rel="canonical" href="<?=$canonical;?>" />
+    <?php endif; ?>
     <link rel="shortcut icon" href="images/star.png" type="image/png" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="megamenu/css/ionicons.min.css" rel="stylesheet" type="text/css" media="all"/>
